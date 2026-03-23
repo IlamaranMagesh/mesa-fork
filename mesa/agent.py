@@ -69,6 +69,10 @@ class Agent[M: Model]:
         for dataset in self._datasets:
             self.model.data_registry[dataset].add_agent(self)
 
+    def __str__(self):
+        """Return a string representation of the agent with its unique ID."""
+        return f"Agent:{self.__class__.__name__} {self.unique_id}"
+
     def remove(self) -> None:
         """Remove and delete the agent from the model.
 
